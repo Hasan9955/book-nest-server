@@ -1,6 +1,8 @@
 import express, { Application, urlencoded } from 'express';
 import cors from 'cors';
 import { mainRoute } from './app/routes';
+import globalErrorHandler from './app/middlewares/globalErrorHandler';
+import notFound from './app/middlewares/notFound';
 
 const app: Application = express();
 
@@ -14,6 +16,7 @@ app.use(cors())
 
 
 app.use('/api', mainRoute)
+
 app.get('/', (req, res) => {
     res.status(200).json({
         statusCode: 200,
@@ -21,6 +24,10 @@ app.get('/', (req, res) => {
         message: 'Book Nest server is working successfully!',
     })
 })
+
+app.use(globalErrorHandler)
+
+app.use(notFound)
 
 
 export default app;

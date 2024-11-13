@@ -1,15 +1,15 @@
 import catchAsync from "../../utils/catchAsync";
+import sendResponse from "../../utils/response";
 import { bookServices } from "./book.service";
 
 
-const createBook = catchAsync(async (req, res) => {
-    const data = req.body;
 
-    const result = await bookServices.createBook(data)
-    res.status(200).json({
-        success: true,
-        statusCode: 200,
-        message: 'Book registered successfully!',
+const createBook = catchAsync(async (req, res) => {
+    const payload = req.body; 
+    const result = await bookServices.createBook(payload)
+    sendResponse(res, {
+        statusCode: 201,
+        message: 'Book created successfully!',
         data: result
     })
 })
@@ -29,5 +29,5 @@ const getBooks = catchAsync(async (req, res) => {
 export const bookControllers = {
     createBook,
     getBooks,
-    
+
 }
