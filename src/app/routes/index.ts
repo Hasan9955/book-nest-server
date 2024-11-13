@@ -21,6 +21,6 @@ const allRoutes = [
 ]
 
 allRoutes.forEach((route) => router.use(route.path, route.route))
-
+ 
 
 export const mainRoute = router;
