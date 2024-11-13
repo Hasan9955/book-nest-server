@@ -4,6 +4,14 @@ import { TMember } from "./member.interface"
 
 
 const createMember = async (payload: TMember) => {
+    const isMemberExists = await prisma.member.findUnique({
+        where: {
+            email: payload.email
+        }
+    })
+    if(isMemberExists){
+        throw new Error("This email id is already registered!")
+    }
     const result = await prisma.member.create({
         data: payload
     })

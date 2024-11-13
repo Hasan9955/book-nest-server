@@ -6,7 +6,7 @@ const createMemberValidation = z.object({
         name: z.string(),
         email: z.string(),
         phone: z.string(),
-        membershipDate: z.date().optional()
+        membershipDate: z.string().optional()
     })
 })
 
@@ -15,7 +15,7 @@ const updateMemberValidation = z.object({
         name: z.string().optional(),
         email: z.string().optional(),
         phone: z.string().optional(),
-        membershipDate: z.date().optional()
+        membershipDate: z.string().optional()
     })
 })
 
