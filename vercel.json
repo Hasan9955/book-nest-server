@@ -1,16 +1,22 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "dist/server.js",
-            "use": "@vercel/node"
-        }
+      {
+        "src": "dist/server.js",
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "dist/server.js",
-            "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
-        }
-    ]
-}
+      {
+        "src": "/(.*)",
+        "dest": "dist/server.js",
+        "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+      }
+    ],
+    "env": {
+      "DATABASE_URL": "postgresql://book_nest_user:rvuXiHtrxZAtToXTphTPImAzgzni5ezp@dpg-csqdmnogph6c73eatb90-a.oregon-postgres.render.com/book_nest"
+    }
+  }
+  
+
+  
