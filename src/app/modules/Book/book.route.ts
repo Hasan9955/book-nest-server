@@ -9,6 +9,12 @@ const router = Router();
 
 router.get('/', bookControllers.getBooks)
 
+router.get('/:bookId', bookControllers.getSingleBook)
+
+router.delete('/:bookId', bookControllers.deleteBook)
+
+router.put('/:bookId', validateRequest(bookValidation.updateBookValidation), bookControllers.updateBook)
+
 router.post('/', validateRequest(bookValidation.createBookValidation), bookControllers.createBook)
 
 
