@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "prisma generate && tsc",
+    "postinstall": "prisma generate",
+    "build": "tsc",
     "prod": "node ./dist/server.js",
     "prismaMigrate": "npx prisma migrate dev",
     "prismaStudio": "npx prisma studio",

@@ -3,20 +3,14 @@
     "builds": [
       {
         "src": "dist/server.js",
-        "use": "@vercel/node"
+        "use": "@vercel/node",
+        "config": { "includeFiles": ["prisma/schema.prisma"] }
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "dist/server.js",
-        "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+        "dest": "dist/server.js"
       }
-    ],
-    "env": {
-      "DATABASE_URL": "postgresql://book_nest_user:rvuXiHtrxZAtToXTphTPImAzgzni5ezp@dpg-csqdmnogph6c73eatb90-a.oregon-postgres.render.com/book_nest"
-    }
+    ]
   }
-  
-
-  

@@ -1,11 +1,9 @@
 import app from "./app";
 
-const port = 3000;
-
-let server;
+const port = 3000; 
 
 function main () {
-    server = app.listen(port, () => {
+    const server = app.listen(port, () => {
         console.log(`Book Nest server is running on port: ${port}`);
     })
 }
